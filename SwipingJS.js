@@ -36,3 +36,35 @@ ad_wrapper.addEventListener("touchend", e => {
 
   } 
 });
+
+
+// Here the dataloading starts
+
+const listingCounter = 0; 
+
+function populateHTML() {
+console.log("loading");
+fetch("./fakeListingData.json").then(response => response.json()).then(data => {
+  console.log(response);
+
+    if ( listingCounter >= data.items.length ) {
+      listingCounter = 0;
+    }
+
+    let imagepath = data.items[i].image;
+    let price = data.items[i].price;
+    let timerange = data.items[i].title;
+
+    ad_wrapper.innerHTML += `
+        <div class="ad_photo">
+          <img src="${imagepath}" alt="">
+        </div>
+        <div class="ad_detail_price">
+            <p>${price}</p>
+        </div>
+        <div class="ad_detail_timeframe">
+            <p>${timerange}</p>
+        </div>
+    `;
+})
+}

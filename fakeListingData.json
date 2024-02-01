@@ -1,0 +1,52 @@
+{
+  "houseListings": [
+    {
+      "id": 1,
+      "title": "Modern 3-Bedroom House",
+      "price": "$500,000",
+      "image": "https://example.com/house1.jpg",
+      "location": {
+        "city": "Cityville",
+        "state": "California",
+        "zipcode": "12345"
+      },
+      "details": {
+        "bedrooms": 3,
+        "bathrooms": 2.5,
+        "squareFeet": 2000,
+        "lotSize": "0.25 acres",
+        "yearBuilt": 2020
+      },
+      "features": ["Spacious Living Room", "Upgraded Kitchen", "Master Suite"],
+      "contact": {
+        "agent": "John Doe",
+        "phone": "+1 (555) 123-4567",
+        "email": "john.doe@example.com"
+      }
+    },
+    {
+      "id": 2,
+      "title": "Charming Victorian Home",
+      "price": "$700,000",
+      "image": "https://example.com/house2.jpg",
+      "location": {
+        "city": "Historicville",
+        "state": "New York",
+        "zipcode": "67890"
+      },
+      "details": {
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "squareFeet": 2500,
+        "lotSize": "0.3 acres",
+        "yearBuilt": 1895
+      },
+      "features": ["Wrap-around Porch", "Original Hardwood Floors", "Garden"],
+      "contact": {
+        "agent": "Jane Smith",
+        "phone": "+1 (555) 987-6543",
+        "email": "jane.smith@example.com"
+      }
+    }
+  ]
+}
