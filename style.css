@@ -11,17 +11,17 @@ body {
 
 .container {
   min-width: 100vw;
-  min-height: 100vh;
+  min-height: 95vh;
   width: 100vw;
-  height: 100vh;
+  height: 95vh;
   display: flex;
   justify-content: center;
-  margin: 5% 0;
+  padding: 5% 0;
 }
 
 .ad_wrapper {
   width: 80%;
-  height: 60%;
+  height: 80%;
   border: 2px solid black;
   display: flex;
   flex-direction: column;
@@ -40,15 +40,24 @@ body {
     margin:5%
 }
 
-.todo_essentials {
-  padding: 10px 20px;
+
+.nav_bar {
+  min-width: 100vw;
+  min-height: 5vh;
+  width: 100vw;
+  height: 5vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-
-.delete_button:hover,
-.delete_button:focus {
-  background-color: #9c0315;
+.nav_button {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 
 @media only screen and (min-width: 600px) {
   .container {
