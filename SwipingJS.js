@@ -45,15 +45,13 @@ const listingCounter = 0;
 function populateHTML() {
 console.log("loading");
 fetch("./fakeListingData.json").then(response => response.json()).then(data => {
-  console.log(response);
-
-    if ( listingCounter >= data.items.length ) {
+    if ( listingCounter >= data.houseListings.length ) {
       listingCounter = 0;
     }
 
-    let imagepath = data.items[i].image;
-    let price = data.items[i].price;
-    let timerange = data.items[i].title;
+    let imagepath = data.houseListings[listingCounter].image;
+    let price = data.houseListings[listingCounter].price;
+    let timerange = data.houseListings[listingCounter].title;
 
     ad_wrapper.innerHTML += `
         <div class="ad_photo">
