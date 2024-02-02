@@ -35,10 +35,6 @@ ad_wrapper.addEventListener("touchmove", e => {
 
   } 
 
-
-
-
-
 });
 
 ad_wrapper.addEventListener("touchend", e => {
@@ -49,38 +45,51 @@ ad_wrapper.addEventListener("touchend", e => {
   if (deltaX < MOVE_THRESHOLD_Delete) {
     // Get a new ad---
     ad_wrapper.style.color ="red";
-    ad_dummy_before.style.flex = 0;
-    ad_dummy_after.style.flex = 0;
-
+  
+    populateHTML();
     
     // If higer than the threshold - match 
   } else if (deltaX > MOVE_THRESHOLD_Match) {
     // Save the match 
     // Open up the Chat! 
     ad_wrapper.style.color ="blue";
+    
+    // Update the HTML
+    populateHTML();
+  } 
+    // reset 
+    deltaX = 0;
+
     ad_dummy_before.style.flex = 0;
     ad_dummy_after.style.flex = 0;
 
-  } 
+
 });
 
 
 // Here the dataloading starts
 
-const listingCounter = 0; 
+let listingCounter = 0; 
 
 function populateHTML() {
-console.log("loading");
-fetch("./fakeListingData.json").then(response => response.json()).then(data => {
+fetch("./houseListings.json").then(response => response.json()).then(data => {
     if ( listingCounter >= data.houseListings.length ) {
       listingCounter = 0;
     }
+    console.log("loading " + listingCounter);
+    let currListing = data.houseListings[listingCounter]
 
-    let imagepath = data.houseListings[listingCounter].image;
-    let price = data.houseListings[listingCounter].price;
-    let timerange = data.houseListings[listingCounter].title;
+    let imagepath = currListing.image;
+    let price = currListing.price;
+    let timerange = currListing.timeRange.from + " - " + currListing.timeRange.to;
+    // Not optimal hahahah - do we need a "favorite commute location?"
+    // for now just the first one 
+    let favCommuteObj = Object.entries(currListing.commuteTimes[0])[0];
+    let commutetime = favCommuteObj[0] + " - " + favCommuteObj[1]  ;
 
-    ad_wrapper.innerHTML += `
+    console.log(commutetime);
+
+    ad_wrapper.innerHTML = `
         <div class="ad_photo">
           <img src="${imagepath}" alt="">
         </div>
@@ -90,6 +99,11 @@ fetch("./fakeListingData.json").then(response => response.json()).then(data => {
         <div class="ad_detail_timeframe">
             <p>${timerange}</p>
         </div>
+        <div class="ad_detail_commutetime">
+            <p>${commutetime}</p>
+        </div>
     `;
+
+    listingCounter = listingCounter +1;
 })
 }

@@ -1,28 +1,47 @@
 {
   "houseListings": [
     {
-      "id": 1,
-      "title": "Modern 3-Bedroom House",
-      "price": "$500,000",
-      "image": "https://example.com/house1.jpg",
-      "location": {
-        "city": "Cityville",
-        "state": "California",
-        "zipcode": "12345"
-      },
-      "details": {
-        "bedrooms": 3,
-        "bathrooms": 2.5,
-        "squareFeet": 2000,
-        "lotSize": "0.25 acres",
-        "yearBuilt": 2020
-      },
-      "features": ["Spacious Living Room", "Upgraded Kitchen", "Master Suite"],
-      "contact": {
-        "agent": "John Doe",
-        "phone": "+1 (555) 123-4567",
-        "email": "john.doe@example.com"
-      }
+        "id": 1,
+        "title": "Modern 3-Bedroom House",
+        "description": "Modern 3-Bedroom House",
+        "price": "$500,000",
+        "image": "https://example.com/house1.jpg",
+        "timeRange": {
+            "from": "1. Mar",
+            "to": "1. Oct"
+            },
+        "location": {
+            "city": "Cityville",
+            "state": "California",
+            "address": "adress 123",
+            "zipcode": "12345"
+            },
+        "commuteTimes" : [{
+            "KTH Kista Campus": "30min", 
+            "City center": "20min"
+            }],
+        "amenities": {
+            "furnished": true,
+            "heating": true,
+            "internet": false
+            },
+        "details": {
+            "bedrooms": 3,
+            "bathrooms": 2.5,
+            "squareMeters": 2000,
+            "lotSize": "0.25 acres",
+            "yearBuilt": 2020
+            },
+        "features": [
+            "Spacious Living Room", 
+            "Upgraded Kitchen", 
+            "Master Suite"
+            ],
+        "contact": {
+            "agent": "John Doe",
+            "phone": "+1 (555) 123-4567",
+            "email": "john.doe@example.com"
+            }
     },
     {
       "id": 2,
