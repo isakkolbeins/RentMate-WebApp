@@ -28,10 +28,21 @@ body {
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
   background-color: aliceblue;
   align-items: center;
+  flex: 0.8;
+}
+
+.ad_dummy_before {
+  flex: 0;
+  transition: flex 0.5s;
+}
+
+.ad_dummy_after {
+  flex: 0;
+  transition: flex 0.5s;
 }
 
 .ad_photo {
-    width: 80%;
+    width: 90%;
     height: 50%;
     border: 2px solid black;
     display: flex;
@@ -59,7 +70,7 @@ body {
 }
 
 
-@media only screen and (min-width: 600px) {
+/* @media only screen and (min-width: 600px) {
   .container {
     min-width: 0;
     max-width: 500px;
@@ -71,4 +82,4 @@ body {
   .card:hover .delete_button {
     transform: scaleX(1) !important;
   }
-}
+} */
