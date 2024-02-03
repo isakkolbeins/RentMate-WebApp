@@ -11,66 +11,84 @@ body {
 
 .container {
   min-width: 100vw;
-  min-height: 95vh;
+  min-height: 100vh;
   width: 100vw;
-  height: 95vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
-  padding: 5% 0;
+  margin: 5% 0;
 }
 
 .ad_wrapper {
   width: 80%;
-  height: 80%;
+  height: 60%;
   border: 2px solid black;
   display: flex;
   flex-direction: column;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
   background-color: aliceblue;
   align-items: center;
-  flex: 0.8;
-}
-
-.ad_dummy_before {
-  flex: 0;
-  transition: flex 0.5s;
-}
-
-.ad_dummy_after {
-  flex: 0;
-  transition: flex 0.5s;
 }
 
 .ad_photo {
-    width: 90%;
-    height: 50%;
-    border: 2px solid black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin:5%
-}
-
-
-.nav_bar {
-  min-width: 100vw;
-  min-height: 5vh;
-  width: 100vw;
-  height: 5vh;
+  position: relative;
+  width: 80%;
+  height: 50%;
+  border: 2px solid black;
   display: flex;
-  justify-content: space-around;
   align-items: center;
-}
-
-.nav_button {
-  width: 30%;
-  display: flex;
   justify-content: center;
-  align-items: center;
+  margin: 5%;
 }
 
+.ad_photo img {
+  max-width: 100%;
+  height: auto;
+}
 
-/* @media only screen and (min-width: 600px) {
+.ad_detail_price {
+  padding: 10px;
+}
+
+.ad_detail_timeframe {
+  display: flex;
+  align-items: center;
+  white-space: nowrap; /* Prevent line breaks */
+  overflow-x: auto;
+}
+
+.ad_detail_timeframe .separator {
+  margin: 0 10px;
+}
+
+#buttons {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+  max-width: 100%; /* Allow buttons to take full width if necessary */
+  overflow: auto; /* Add overflow for scrolling if necessary */
+}
+
+#buttons button {
+  padding: 20px;
+  font-size: 20px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  max-width: 100%;
+  flex: 1; /* Allow buttons to flexibly distribute width */
+}
+
+.todo_essentials {
+  padding: 10px 20px;
+}
+
+.delete_button:hover,
+.delete_button:focus {
+  background-color: #9c0315;
+}
+
+@media only screen and (min-width: 600px) {
   .container {
     min-width: 0;
     max-width: 500px;
@@ -82,4 +100,4 @@ body {
   .card:hover .delete_button {
     transform: scaleX(1) !important;
   }
-} */
+}

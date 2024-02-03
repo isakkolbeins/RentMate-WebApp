@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+
+    <title>Swipe Open Controls</title>
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="ad_wrapper">
+        <div class="ad_photo" id="imageContainer">
+          <ul id="imageList"></ul>
+        </div>
+        <div class="ad_detail_price">
+          <p id="pricePlaceholder">Price placeholder</p>
+        </div>
+        <div class="ad_detail_timeframe">
+          <p id="timePlaceholder_start">Start Time</p>
+          <span class="separator">-</span>
+          <p id="timePlaceholder_end">End Time</p>         
+        </div>
+        <div id="buttons">
+          <button class="dislike" onclick="handleSwipe('dislike')">&#128148;</button>
+          <button class="like" onclick="handleSwipe('like')">&#10084;</button>
+        </div>
+      </div>
+
+      <!-- <nav>
+        <div class="nav_button profile_button"></div>
+        <div class="nav_button home_button"></div>
+        <div class="nav_button chat_button"></div>
+      </nav> -->
+    </div>
+
+    <script src="./script.js"></script>
+
+  </body>
+</html>
