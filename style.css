@@ -11,16 +11,17 @@ body {
 
 .container {
   min-width: 100vw;
-  min-height: 100vh;
+  min-height: 95vh;
   width: 100vw;
-  height: 100vh;
+  height: 95vh;
   display: flex;
   justify-content: center;
-  margin: 5% 0;
+  padding: 5% 0;
 }
 
 .ad_wrapper {
-  width: 80%;
+  /* width: 80%; */
+  flex: 0.8;
   height: 60%;
   border: 2px solid black;
   display: flex;

@@ -1,0 +1,23 @@
+.nav_bar {
+  min-width: 100vw;
+  min-height: 5vh;
+  width: 100vw;
+  height: 5vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav_button {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration:none;
+  color: black;
+}
+
+.nav_current {
+    /* color: "theme color" */
+    box-shadow: rgb(17, 25, 34) 0 1vh 1vh -1vh;
+}
