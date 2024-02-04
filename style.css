@@ -19,6 +19,16 @@ body {
   padding: 5% 0;
 }
 
+.ad_dummy_before {
+  flex: 0;
+  transition: flex 0.5s;
+}
+
+.ad_dummy_after {
+  flex: 0;
+  transition: flex 0.5s;
+}
+
 .ad_wrapper {
   /* width: 80%; */
   flex: 0.8;
