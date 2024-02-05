@@ -26,13 +26,14 @@ ad_wrapper.addEventListener("touchmove", e => {
     // indicate the selection - by moving the wrapper 
     ad_dummy_before.style.flex = 0;
     ad_dummy_after.style.flex = 0.2;
+    ad_wrapper.style.boxShadow = "10px 10px 10px red";
 
     
     // If higer than the threshold - match 
   } else if (deltaX > MOVE_THRESHOLD_Match) {
     ad_dummy_before.style.flex = 0.2;
     ad_dummy_after.style.flex = 0;
-
+    ad_wrapper.style.boxShadow = "-10px 10px 10px green";
   } 
 
 });
@@ -62,6 +63,7 @@ ad_wrapper.addEventListener("touchend", e => {
 
     ad_dummy_before.style.flex = 0;
     ad_dummy_after.style.flex = 0;
+    ad_wrapper.style.boxShadow = "2px 10px 10px rgba(0,0,0,0.5)";
 
 
 });
