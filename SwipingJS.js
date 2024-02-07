@@ -14,6 +14,7 @@ let deltaX = 0;
 // On touch - get the x-quordinates 
 ad_wrapper.addEventListener("touchstart", e => {
   startingX = e.touches[0].pageX;
+  ad_wrapper.style.boxShadow = "0px 10px 10px 10px var(--shadow), -10px 0 5px var(--negative), 10px 0 5px var(--positive)";
 });
 
 // On swipe - calculate the deltax (change in either positive or negative )
@@ -26,15 +27,21 @@ ad_wrapper.addEventListener("touchmove", e => {
     // indicate the selection - by moving the wrapper 
     ad_dummy_before.style.flex = 0;
     ad_dummy_after.style.flex = 0.2;
-    ad_wrapper.style.boxShadow = "10px 10px 10px red";
+    ad_wrapper.style.boxShadow = "0px 0px 10px 20px var(--negative)";
 
     
     // If higer than the threshold - match 
   } else if (deltaX > MOVE_THRESHOLD_Match) {
     ad_dummy_before.style.flex = 0.2;
     ad_dummy_after.style.flex = 0;
-    ad_wrapper.style.boxShadow = "-10px 10px 10px green";
+    ad_wrapper.style.boxShadow = "0px 0px 10px 20px var(--positive)";
   } 
+
+  else {
+    ad_dummy_before.style.flex = 0;
+    ad_dummy_after.style.flex = 0;
+    ad_wrapper.style.boxShadow = "0px 10px 10px 10px var(--shadow), -10px 0 5px var(--negative), 10px 0 5px var(--positive)";
+  }
 
 });
 
@@ -45,7 +52,7 @@ ad_wrapper.addEventListener("touchend", e => {
     // If lower than threshold - delete - 
   if (deltaX < MOVE_THRESHOLD_Delete) {
     // Get a new ad---
-    ad_wrapper.style.color ="red";
+    // ad_wrapper.style.color ="red";
   
     populateHTML();
     
@@ -53,7 +60,7 @@ ad_wrapper.addEventListener("touchend", e => {
   } else if (deltaX > MOVE_THRESHOLD_Match) {
     // Save the match 
     // Open up the Chat! 
-    ad_wrapper.style.color ="blue";
+    // ad_wrapper.style.color ="blue";
     
     // Update the HTML
     populateHTML();
@@ -63,7 +70,7 @@ ad_wrapper.addEventListener("touchend", e => {
 
     ad_dummy_before.style.flex = 0;
     ad_dummy_after.style.flex = 0;
-    ad_wrapper.style.boxShadow = "2px 10px 10px rgba(0,0,0,0.5)";
+    ad_wrapper.style.boxShadow = "0px 10px 10px 5px var(--shadow)";
 
 
 });
@@ -92,17 +99,20 @@ fetch("./houseListings.json").then(response => response.json()).then(data => {
     console.log(commutetime);
 
     ad_wrapper.innerHTML = `
+
         <div class="ad_photo">
           <img src="${imagepath}" alt="">
         </div>
-        <div class="ad_detail_price">
-            <p>${price}</p>
-        </div>
-        <div class="ad_detail_timeframe">
-            <p>${timerange}</p>
-        </div>
-        <div class="ad_detail_commutetime">
-            <p>${commutetime}</p>
+        <div class="ad_info">
+          <div class="ad_detail ad_price">
+              <p>${price}</p>
+          </div>
+          <div class="ad_detail ad_timeframe">
+              <p>${timerange}</p>
+          </div>
+          <div class="ad_detail ad_commutetime">
+              <p>${commutetime}</p>
+          </div>
         </div>
     `;
 

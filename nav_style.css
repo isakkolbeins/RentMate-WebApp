@@ -1,8 +1,8 @@
 .nav_bar {
   min-width: 100vw;
-  min-height: 5vh;
+  min-height: 5dvh;
   width: 100vw;
-  height: 5vh;
+  height: 5dvh;
   display: flex;
   justify-content: space-around;
   align-items: center;
