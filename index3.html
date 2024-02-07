@@ -1,6 +1,9 @@
 <div class="listing-section">
   <title>Swipe Open Controls</title>
   <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./nav_style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script src="./script_redirection.js"></script>
   <div class="product">
     <div class="image-box">
       <div class="images" id="image-1" style="background-image: url('./images/accomodation1.jpg');"></div>
@@ -10,7 +13,7 @@
       <h3 class="price">5000 SEK</h3>
       <p class="description">Spacious apartment near KTH Kista</p>
       <p class="description">Availability: 9/03 - 15/05</p>
-      <button type="button" name="item-1-button" id="item-1-button">Details</button>
+      <button type="button" onclick="redirectToDetailsPage('Match 1', '5000 SEK', 'Spacious apartment near KTH Kista', '9/03 - 15/05')">Details</button>
     </div>
   </div>
   <div class="product">
@@ -97,4 +100,24 @@
       <button type="button" name="item-1-button" id="item-1-button">Details</button>
     </div>
   </div>
+
+  <div class ="nav_bar">
+    <a href='./Profile/' class="nav_button profile_button">
+    <div >
+      <span class="material-symbols-outlined">
+        person
+        </span>
+    </div>
+    </a>
+  
+    <a href='./Chat/' class="nav_button chat_button">
+      <div >
+        <span class="material-symbols-outlined">
+            chat
+          </span>
+      </div>
+    </a>
+  </div>
+
+
 </div>

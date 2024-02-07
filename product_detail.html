@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details</title>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    .image-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .image-box {
+      width: 200px;
+      height: 200px;
+      margin: 5px;
+      background-size: cover;
+      background-position: center;
+    }
+    .product-info {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="image-container">
+    <div class="image-box" style="background-image: url('./images/accomodation1.jpg');"></div>
+    <div class="image-box" style="background-image: url('./images/Accomodation2.jpg');"></div>
+    <div class="image-box" style="background-image: url('./images/Accomodation3.jpg');"></div>
+    <div class="image-box" style="background-image: url('./images/Accomodation4.jpg');"></div>
+  </div>
+  <div class="product-info">
+    <h2>Product Name</h2>
+    <h3>Product Price</h3>
+    <p>Product Description</p>
+    <!-- Add more product information as needed -->
+  </div>
+
+  <!-- JavaScript for image navigation -->
+  <script>
+    // JavaScript functions for image navigation
+    let currentImageIndex = 0;
+    const images = [
+      'image1.jpg',
+      'image2.jpg',
+      'image3.jpg',
+      'image4.jpg'
+      // Add more image URLs as needed
+    ];
+
+    function showImage(index) {
+      currentImageIndex = (index + images.length) % images.length;
+      document.querySelectorAll('.image-box').forEach((box, idx) => {
+        box.style.backgroundImage = `url('${images[(currentImageIndex + idx) % images.length]}')`;
+      });
+    }
+
+    // Initialize images
+    showImage(0);
+  </script>
+</body>
+</html>
