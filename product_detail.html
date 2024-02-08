@@ -4,61 +4,137 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product Details</title>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./nav_style.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <style>
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      background-color: var(--surface); /* Set the background color to match the description box */
+    }
+
+    :root {
+      --primary:#00BFA5;
+      --secondary:#64FFDA;
+      --background: #2B2C28;
+      --surface:#3E4851;
+      --shadow: #00000080;
+      --positive:#72FD9A;
+      --negative:#D54848;
+      --text-primary: #F4F5F5;
+      --text-secondary: #000000;
+      --round-corner: 10px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
     .image-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       margin-bottom: 20px;
     }
+
     .image-box {
-      width: 200px;
+      width: calc(50% - 10px); /* Half of the container width with margin */
       height: 200px;
       margin: 5px;
       background-size: cover;
       background-position: center;
     }
-    .product-info {
-      margin-bottom: 20px;
+
+    .product-description {
+      text-align: center;
+      border: 1px solid var(--secondary);
+      border-radius: var(--round-corner);
+      padding: 10px;
+      background-color: var(--surface);
+      color: var(--text-primary);
+    }
+
+    .nav_bar {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      display: flex;
+    }
+
+    .nav_button {
+      background-color: var(--surface);
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav_button:hover {
+      background-color: var(--secondary);
+    }
+
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-size: 24px;
+      color: var(--text-primary);
+    }
+
+    .profile_button {
+      background-color: var(--positive);
+    }
+
+    .chat_button {
+      background-color: var(--negative);
     }
   </style>
 </head>
 <body>
-  <div class="image-container">
-    <div class="image-box" style="background-image: url('./images/accomodation1.jpg');"></div>
-    <div class="image-box" style="background-image: url('./images/Accomodation2.jpg');"></div>
-    <div class="image-box" style="background-image: url('./images/Accomodation3.jpg');"></div>
-    <div class="image-box" style="background-image: url('./images/Accomodation4.jpg');"></div>
+  <div class="container">
+    <div class="image-container">
+      <div class="image-box" style="background-image: url('./images/accomodation1.jpg');"></div>
+      <div class="image-box" style="background-image: url('./images/Accomodation2.jpg');"></div>
+    </div>
+    <div class="image-container">
+      <div class="image-box" style="background-image: url('./images/Accomodation3.jpg');"></div>
+      <div class="image-box" style="background-image: url('./images/Accomodation4.jpg');"></div>
+    </div>
+    <div class="product-description">
+      <h2>Match number 1</h2>
+      <h3>5000 SEK</h3>
+      <p>Spacious apartment near KTH Kista</p>
+      <p>Availability: 9/03 - 15/05</p>
+      <p>Locations near: KTH Kista, Erricsson HQ</p>
+      <p>Electricity, water and heating included</p>
+      <p>Fully furnished</p>
+    </div>
   </div>
-  <div class="product-info">
-    <h2>Product Name</h2>
-    <h3>Product Price</h3>
-    <p>Product Description</p>
-    <!-- Add more product information as needed -->
+  <div class="nav_bar">
+    <a href='./Profile/' class="nav_button profile_button">
+      <div>
+        <span class="material-symbols-outlined">
+          person
+        </span>
+      </div>
+    </a>
+    <a href='./Chat/' class="nav_button chat_button">
+      <div>
+        <span class="material-symbols-outlined">
+          chat
+        </span>
+      </div>
+    </a>
   </div>
-
-  <!-- JavaScript for image navigation -->
-  <script>
-    // JavaScript functions for image navigation
-    let currentImageIndex = 0;
-    const images = [
-      'image1.jpg',
-      'image2.jpg',
-      'image3.jpg',
-      'image4.jpg'
-      // Add more image URLs as needed
-    ];
-
-    function showImage(index) {
-      currentImageIndex = (index + images.length) % images.length;
-      document.querySelectorAll('.image-box').forEach((box, idx) => {
-        box.style.backgroundImage = `url('${images[(currentImageIndex + idx) % images.length]}')`;
-      });
-    }
-
-    // Initialize images
-    showImage(0);
-  </script>
 </body>
+</html>
+
 </html>
