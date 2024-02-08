@@ -85,7 +85,6 @@ fetch("./houseListings.json").then(response => response.json()).then(data => {
     if ( listingCounter >= data.houseListings.length ) {
       listingCounter = 0;
     }
-    console.log("loading " + listingCounter);
     let currListing = data.houseListings[listingCounter]
 
     let imagepath = currListing.image;
@@ -95,8 +94,6 @@ fetch("./houseListings.json").then(response => response.json()).then(data => {
     // for now just the first one 
     let favCommuteObj = Object.entries(currListing.commuteTimes[0])[0];
     let commutetime = favCommuteObj[0] + " - " + favCommuteObj[1]  ;
-
-    console.log(commutetime);
 
     ad_wrapper.innerHTML = `
 
