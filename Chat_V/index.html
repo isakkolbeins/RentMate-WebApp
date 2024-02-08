@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Now !</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div id="chat-window">
+        <div id="profile-list">
+            <!-- List of other profiles -->
+            <div class="profile">
+                <img class="profile-avatar" src="faces/grandma.jpg" alt="Profile 1 Avatar">
+                <!-- <span class="profile-name">Grandma</span> -->
+                <!--Uncomment the line above if u wanna add names on the list  -->
+            </div>
+            <div class="profile">
+                <img class="profile-avatar" src="faces/grandpa.jpeg" alt="Profile 2 Avatar">
+                <!-- <span class="profile-name">Grandpa</span> -->
+                <!--Uncomment the line above if u wanna add names on the list  -->
+            </div>
+            <!-- Add more profiles as needed -->
+        </div>
+        <div id="chat-content">
+            <!-- Chat header and messages go here -->
+            <div id="chat-header">
+                <div id="user-info">
+                    <img id="user-avatar" src="faces/wannanow.jpeg" alt="User Avatar">
+                    <h2 id="user-name">Wannanow</h2>
+                </div>
+            </div>
+            <div id="chat-messages">
+                <!-- Chat messages displayed here -->
+            </div>
+            <input type="text" id="message-input" placeholder="Type your message...">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+
+    <script src="script2.js"></script>
+</body>
+</html>

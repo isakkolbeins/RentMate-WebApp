@@ -1,0 +1,110 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#chat-window {
+    width: 300px;
+    margin: 50px auto;
+    border: 1px solid rgb(14, 1, 1);
+    padding: 20px;
+}
+
+#chat-window {
+    display: flex;
+}
+
+#profile-list {
+    flex: 1; /* Occupy 1/3 of the available space */
+    padding: 10px;
+    border-right: 1px solid #ddd; /* Add a border to separate profiles from chat content */
+    max-height: 300px; /* Limit the height of the profile list */
+    overflow-y: auto; /* Enable vertical scrolling if the list exceeds the height */
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.profile-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /* margin-right: 10px; */
+    display: block;
+}
+
+/* .profile-name {
+    font-size: 16px;
+} */
+
+#chat-content {
+    flex: 3; /* Occupy 2/3 of the available space */
+    padding: 10px;
+}
+
+#chat-messages {
+    height: 200px;
+    overflow-y: scroll;
+    margin-bottom: 10px;
+    /* background-color: black; */
+    order: 1px solid #ccc; 
+    padding: 10px;
+}
+
+#message-input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.sent-message {
+    text-align: right;
+    margin-bottom: 5px; /* Add some space between messages */
+    padding: 10px;
+    background-color: #DCF8C6; /* Light green background for sent messages */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.received-message {
+    text-align: left;
+    margin-bottom: 5px; /* Add some space between messages */
+    padding: 10px;
+    background-color: #d61818; /* White background for received messages */
+    border-radius: 10px; /* Rounded corners */
+}
+
+#chat-header {
+    position: relative;
+    padding: 10px;
+    background-color: #ffcccc; /* Change the background color here */
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center; /* Align items vertically */
+    justify-content: flex-end; /* Push user info to the right */
+}
+
+#user-info {
+    display: flex;
+    align-items: center;
+    margin-right: 10px; /* Add margin to separate from chat header edge */
+}
+
+#user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+#user-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+}
+
+
+button {
+    display: block;
+    width: 100%;
+}
