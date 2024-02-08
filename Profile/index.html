@@ -21,22 +21,106 @@
   </head>
   <body>
     <div class="container">
-      <div>
-        Here the profile goes 
-      </div>
-
-      <div class="chat_selection">
-        <div class="match_icon_wraper">
-          <div class="match_icon_photo">
-            test
+      <div class="profile_wrapper">
+        <div class="profile_element profile_element_name">
+          <div class="profile_tag profile_tag_name">
+            <p>Name</p>
           </div>
-          <div class="match_icon_name">
-
+          <div class="profile_info profile_info_name">
+            <p>Jane Doe</p>
           </div>
         </div>
+
+        <div class="profile_element profile_element_wrapper">
+          <div class="profile_element profile_element_image">
+            <div class="profile_tag profile_tag_image">
+              <p>Profile Photo</p>
+            </div>
+            <div class="profile_info profile_info_image_wrapper">
+              <img src="../images/profile1.jpg" class="profile_info_image"> 
+            </div>
+          </div>
+          <div class="profile_element profile_element_description">
+            <div class="profile_tag profile_tag_description">
+              <p>Description</p>
+            </div>
+            <div class="profile_info profile_info_description">
+              <p>I’m looking for a small studio apartment, close to the KTH campus  </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile_element profile_element_area">
+          <div class="profile_tag profile_tag_area">
+            <p>Area</p>
+          </div>
+          <div class="profile_info profile_info_area">
+            <p>Stockholm</p>
+          </div>
+        </div>
+        <div class="profile_element profile_element_commute">
+          <div class="profile_tag profile_tag_commute">
+            <p>Location of interest</p>
+          </div>
+          <div class="profile_info profile_info_commute">
+            <p>KTH - Main Campus</p>
+          </div>
+        </div>
+        <div class="profile_element profile_element_range">
+          <div class="profile_tag profile_tag_time">
+            <p>Time range</p>
+          </div>
+          <div class="profile_info profile_info_range">
+            <div class="profile_info profile_info_time_from">
+              <p>01.09.24</p>
+            </div>
+            <div class="info_breaker"></div>
+            <div class="profile_info profile_info_time_to">
+              <p>31.12.24</p>
+            </div>
+          </div>
+        </div>
+        <div class="profile_element profile_element_range">
+          <div class="profile_tag profile_tag_time">
+            <p>Price range</p>
+          </div>
+          <div class="profile_info profile_info_range">
+            <div class="profile_info profile_info_price_from">
+              <p>5000 sek</p>
+            </div>
+            <div class="info_breaker"></div>
+            <div class="profile_info profile_info_price_to">
+              <p>10000 sek</p>
+            </div>
+          </div>
+        </div>
+        <div class="profile_element profile_element_verification">
+          <div class="profile_tag profile_tag_verification">
+            <p>Proof of identity</p>
+          </div>
+          <div class="profile_info profile_info_verification verified">
+            <div class="profile_info profile_info_verification">
+              <p>Verified</p>
+            </div>
+            <div class="profile_info profile_info_verification_checkmark">
+              <span class="material-symbols-outlined">
+                check_circle
+              </span>
+            </div>
+            
+            
+          </div>
+        </div>
+
       </div>
       
-
+      <a class="floating_button" href="../Edit">
+        <div class="floating_button_icon">
+          <span class="material-symbols-outlined">
+            edit
+          </span>
+        </div>
+      </a>
 
 
 
@@ -70,9 +154,6 @@
         </a>
       </div>
 
-   
-
-    <script src="./SwipingJS.js"></script>
   </body>
 </html>
 
