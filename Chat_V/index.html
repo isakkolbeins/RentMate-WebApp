@@ -1,34 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+    <!-- <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script> -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Now !</title>
     <link rel="stylesheet" href="style2.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <div id="chat-window">
         <div id="profile-list">
             <!-- List of other profiles -->
-            <div class="profile">
-                <img class="profile-avatar" src="faces/grandma.jpg" alt="Profile 1 Avatar">
+            <div class="profile" data-name="John">
+                <img class="profile-avatar" src="faces/John.jpeg" alt="Profile 3 Avatar">
+                <!-- <span class="profile-name">Wannanow</span> -->
+                <!-- Uncomment the line above if you wanna add names on the list  -->
+            </div>    
+            <div class="profile" data-name="Mary">
+                <img class="profile-avatar" src="faces/Mary.jpeg" alt="Profile 1 Avatar">
                 <!-- <span class="profile-name">Grandma</span> -->
                 <!--Uncomment the line above if u wanna add names on the list  -->
             </div>
-            <div class="profile">
-                <img class="profile-avatar" src="faces/grandpa.jpeg" alt="Profile 2 Avatar">
+            <div class="profile" data-name="Dimitris">
+                <img class="profile-avatar" src="faces/koutsoumpas.jpeg" alt="Profile 2 Avatar">
                 <!-- <span class="profile-name">Grandpa</span> -->
                 <!--Uncomment the line above if u wanna add names on the list  -->
             </div>
             <!-- Add more profiles as needed -->
         </div>
         <div id="chat-content">
-            <!-- Chat header and messages go here -->
+            <!-- Chat header and messages go here. The first listing in the chat needs to also be the first person from the list -->
             <div id="chat-header">
                 <div id="user-info">
-                    <img id="user-avatar" src="faces/wannanow.jpeg" alt="User Avatar">
-                    <h2 id="user-name">Wannanow</h2>
+                    <img id="user-avatar" src="faces/John.jpeg" alt="User Avatar">
+                    <h2 id="user-name">John</h2>
                 </div>
             </div>
             <div id="chat-messages">

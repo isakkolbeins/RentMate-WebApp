@@ -103,6 +103,9 @@ body {
     margin: 0;
 }
 
+.profile.active {
+    border: 2px solid #4CAF50; /* Example: Green border for active profile */
+}
 
 button {
     display: block;
