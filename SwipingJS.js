@@ -1,8 +1,8 @@
+const dbURL = "https://rentmate-api.up.railway.app/"
+
 const ad_wrapper = document.querySelector(".ad_wrapper");
 const ad_dummy_before = document.querySelector(".ad_dummy_before");
 const ad_dummy_after = document.querySelector(".ad_dummy_after");
-
-
 
 const MOVE_THRESHOLD_Delete = -50;
 const MOVE_THRESHOLD_Match = 50;
@@ -45,16 +45,18 @@ ad_wrapper.addEventListener("touchmove", e => {
 
 });
 
+let landlords = [];
+let adCounter = 0; 
+
+
 ad_wrapper.addEventListener("touchend", e => {
-
 // Delete threshold - deltaX - match threshold
-
     // If lower than threshold - delete - 
   if (deltaX < MOVE_THRESHOLD_Delete) {
     // Get a new ad---
     // ad_wrapper.style.color ="red";
   
-    populateHTML();
+    populateHTML(adCounter);
     
     // If higer than the threshold - match 
   } else if (deltaX > MOVE_THRESHOLD_Match) {
@@ -63,7 +65,7 @@ ad_wrapper.addEventListener("touchend", e => {
     // ad_wrapper.style.color ="blue";
     
     // Update the HTML
-    populateHTML();
+    populateHTML(adCounter);
   } 
     // reset 
     deltaX = 0;
@@ -72,47 +74,100 @@ ad_wrapper.addEventListener("touchend", e => {
     ad_dummy_after.style.flex = 0;
     ad_wrapper.style.boxShadow = "0px 10px 10px 5px var(--shadow)";
 
-
 });
 
-
-// Here the dataloading starts
-
-let listingCounter = 0; 
-
-function populateHTML() {
-fetch("./houseListings.json").then(response => response.json()).then(data => {
-    if ( listingCounter >= data.houseListings.length ) {
-      listingCounter = 0;
-    }
-    let currListing = data.houseListings[listingCounter]
-
-    let imagepath = currListing.image;
-    let price = currListing.price;
-    let timerange = currListing.timeRange.from + " - " + currListing.timeRange.to;
-    // Not optimal hahahah - do we need a "favorite commute location?"
-    // for now just the first one 
-    let favCommuteObj = Object.entries(currListing.commuteTimes[0])[0];
-    let commutetime = favCommuteObj[0] + " - " + favCommuteObj[1]  ;
-
-    ad_wrapper.innerHTML = `
-
-        <div class="ad_photo">
-          <img src="${imagepath}" alt="">
-        </div>
-        <div class="ad_info">
-          <div class="ad_detail ad_price">
-              <p>${price}</p>
-          </div>
-          <div class="ad_detail ad_timeframe">
-              <p>${timerange}</p>
-          </div>
-          <div class="ad_detail ad_commutetime">
-              <p>${commutetime}</p>
-          </div>
-        </div>
-    `;
-
-    listingCounter = listingCounter +1;
-})
+async function fetchLandlordsData() {
+  try {
+    const response = await fetch(dbURL + "allLandlords");
+    const data = await response.json();
+    landlords = data; // Store the fetched data in the landlords array
+    populateHTML(adCounter); // Populate HTML after fetching data
+    console.log("Landlords data:", landlords);
+  } catch (error) {
+    console.error('Error fetching landlords data:', error);
+  }
 }
+
+function updateCounter() {
+  adCounter++;
+  if (adCounter >= landlords.length) {
+    adCounter = 0
+  }
+} 
+
+function populateHTML(counter) {
+let data = landlords[counter];
+console.log(data);
+let imagepath = "https://images.pexels.com/photos/101808/pexels-photo-101808.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+let address = data.address;
+let price = data.rent_price + " sek / month";
+let time_from = formatDate(data.time_from); 
+let time_to = formatDate(data.time_to); 
+
+let commute_name = "KTH campus";
+let commute_time = "10 min";
+
+
+  ad_wrapper.innerHTML = `
+
+      <div class="ad_photo">
+        <img src="${imagepath}" alt="">
+      </div>
+      <div class="ad_info">
+  
+        <div class="ad_detail ad_address">
+            <p class="ad_address_text">${address}</p>
+        </div>
+        <div class="ad_detail ad_price">
+            <p>${price}</p>
+        </div>
+        <div class="ad_detail_layout">
+
+          
+          <div class="ad_detail_wrapper ad_time_wrapper">
+            <div class="ad_detail ad_title ad_time_title">
+                <p>Available</p>
+            </div>
+            <div class="ad_detail ad_time_from">
+                <p>${time_from}</p>
+            </div>
+            <div class="ad_detail ad_time_to">
+                <p>${time_to}</p>
+            </div>
+          </div>
+
+          <div class="info_breaker"></div>
+
+          <div class="ad_detail_wrapper ad_commute_wrapper">
+            <div class="ad_detail ad_title ad_commute_title">
+                <p>Commute</p>
+            </div>
+            <div class="ad_detail ad_commute_name">
+                <p>${commute_name}</p>
+            </div>
+            <div class="ad_detail ad_commute_time">
+                <p>${commute_time}</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+  `;
+
+  updateCounter();
+  //listingCounter = listingCounter +1;
+
+}
+
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  const day = date.getDate();
+  const monthIndex = date.getMonth();
+  const year = date.getFullYear();
+  const months = ['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May', 'Jun.', 'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.'];
+  return `${day}. ${months[monthIndex]} ${year}`;
+}
+
+window.onload = async function() {
+  await fetchLandlordsData();
+};

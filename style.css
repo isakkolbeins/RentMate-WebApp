@@ -66,6 +66,11 @@ body {
 }
 
 
+.info_breaker {
+  height: 100%;
+  border: 1px solid var(--primary)
+}
+
 /*Listing page styling*/
 
 .listing-section, .cart-section {
