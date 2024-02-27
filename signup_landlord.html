@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up as Landlord</title>
+    <link rel="stylesheet" href="login_style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="login-container">
+            <h2>Sign Up as Landlord</h2>
+            <form action="submit_landlord_signup.php" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="fullname">Full Name:</label>
+                    <input type="other" id="fullname" name="fullname" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="accommodation_pictures">Accommodation Pictures:</label>
+                    <input type="file" id="accommodation_pictures" name="accommodation_pictures[]" accept="image/*" multiple required>
+                </div>
+                <div class="form-group">
+                    <label for="property_description">Property Description:</label>
+                    <input type="other" id="property_description" name="property_description" required>
+                </div>
+                <div class="form-group">
+                    <label for="property_location">Property Location:</label>
+                    <input type="other" id="property_location" name="property_location" required>
+                </div>
+                <div class="form-group">
+                    <label for="rent_amount">Rent Amount:</label>
+                    <input type="other" id="rent_amount" name="rent_amount" required>
+                </div>
+                <div class="form-group">
+                    <label for="availability_from">Available From:</label>
+                    <input type="other" id="availability_from" name="availability_from" required>
+                </div>
+                <div class="form-group">
+                    <label for="availability_till">Available Till:</label>
+                    <input type="other" id="availability_till" name="availability_till" required>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+            <div class="signup-options">
+                <p>Already have an account?</p>
+                <a href="login.html">Login</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Initialize the date pickers -->
+    <script>
+        // Initialize Flatpickr for the availability_from and availability_till inputs
+        flatpickr("#availability_from", {
+            enableTime: true,
+            dateFormat: "Y-m-d H:i",
+        });
+        flatpickr("#availability_till", {
+            enableTime: true,
+            dateFormat: "Y-m-d H:i",
+        });
+    </script>
+</body>
+</html>

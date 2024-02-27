@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up as Tenant</title>
+    <link rel="stylesheet" href="login_style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="login-container">
+            <h2>Sign Up as Tenant</h2>
+            <form action="submit_tenant_signup.php" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="fullname">Full Name:</label>
+                    <input type="other" id="fullname" name="fullname" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="profile_photo">Profile Photo:</label>
+                    <input type="file" id="profile_photo" name="profile_photo" accept="image/*" required>
+                </div>
+                <div class="form-group">
+                    <label for="location">Location of Interest:</label>
+                    <input type="other" id="location" name="location" required>
+                </div>
+                <div class="form-group">
+                    <label for="min_price">Minimum Price:</label>
+                    <input type="other" id="min_price" name="min_price" required>
+                </div>
+                <div class="form-group">
+                    <label for="max_price">Maximum Price:</label>
+                    <input type="other" id="max_price" name="max_price" required>
+                </div>
+                <div class="form-group">
+                    <label for="availability_from">Available From:</label>
+                    <input type="other" id="availability_from" name="availability_from" required>
+                </div>
+                <div class="form-group">
+                    <label for="availability_till">Available Till:</label>
+                    <input type="other" id="availability_till" name="availability_till" required>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+            <div class="signup-options">
+                <p>Already have an account?</p>
+                <a href="login.html">Login</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Initialize Flatpickr for the availability_from and availability_till inputs
+        flatpickr("#availability_from", {
+            enableTime: true,
+            dateFormat: "Y-m-d H:i",
+        });
+        flatpickr("#availability_till", {
+            enableTime: true,
+            dateFormat: "Y-m-d H:i",
+        });
+    </script>
+</body>
+</html>
