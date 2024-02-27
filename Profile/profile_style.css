@@ -79,11 +79,6 @@
     flex:0.1;
 }
 
-.info_breaker {
-    height: 100%;
-    border: 1px solid var(--primary)
-}
-
 
 .floating_button {
     background-color:var(--secondary);
