@@ -20,27 +20,56 @@
 
     
   </head>
-  <body onload="populateHTML()">
-   <div class="container">
+  <body>
+    <div class="container">
+      <div class="chat_wrapper">
 
-      <div class="chat_selection">
-        <div class="match_icon_wraper">
-          <div class="match_icon_photo">
+        <div id="chat-window">
+          <div id="profile-list">
+              <!-- List of other profiles -->
+              <div class="profile" data-name="John">
+                  <img class="profile-avatar" src="faces/John.jpeg" alt="Profile 3 Avatar">
+                  <!-- <span class="profile-name">Wannanow</span> -->
+                  <!-- Uncomment the line above if you wanna add names on the list  -->
+              </div>    
+              <div class="profile" data-name="Mary">
+                  <img class="profile-avatar" src="faces/Mary.jpeg" alt="Profile 1 Avatar">
+                  <!-- <span class="profile-name">Grandma</span> -->
+                  <!--Uncomment the line above if u wanna add names on the list  -->
+              </div>
+              <div class="profile" data-name="Dimitris">
+                  <img class="profile-avatar" src="faces/koutsoumpas.jpeg" alt="Profile 2 Avatar">
+                  <!-- <span class="profile-name">Grandpa</span> -->
+                  <!--Uncomment the line above if u wanna add names on the list  -->
+              </div>
+              <!-- Add more profiles as needed -->
+          </div>
+          <div id="chat-content">
+              <!-- Chat header and messages go here. The first listing in the chat needs to also be the first person from the list -->
+              <div id="chat-header">
+                  <div id="user-info">
+                      <img id="user-avatar" src="faces/John.jpeg" alt="User Avatar">
+                      <h2 id="user-name">John</h2>
+                  </div>
+              </div>
+              <div id="chat-messages">
+                  <!-- Chat messages displayed here -->
+              </div>
             
           </div>
-          <div class="match_icon_name">
-
-          </div>
+      
+        </div>
+        <div class="chat_controls">
+          <textarea  type="text" id="message-input" placeholder="Type your message..." ></textarea>
+          <button id="send-button" class="floating_button">
+            <div class="floating_button_icon">
+              <span class="material-symbols-outlined">
+                send
+              </span>
+            </div>
+          </button>
         </div>
       </div>
-      <div>
-        The chat goes here 
-      </div>
-      
-
-
-
-
     </div>
 
     
@@ -73,7 +102,7 @@
 
    
 
-    <script src="./SwipingJS.js"></script>
+    <script src="script2.js"></script>
   </body>
 </html>
 

@@ -183,7 +183,7 @@ button {
   border: none;
   border-radius: 2%;
 }
-
+/*
 button:hover {
   bottom: 0.1em;
 }
@@ -196,7 +196,7 @@ button:active {
   bottom: 0;
   background-color: #fdf;
 }
-
+*/
 .table-heading, .table-content {
   width: 75%;
   margin: 1% 12.25%;
@@ -209,6 +209,8 @@ button:active {
   margin: 0;
   text-align: center;
 }
+
+
 
 @media only screen and (min-width: 600px) {
   .container {

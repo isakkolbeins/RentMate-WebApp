@@ -86,8 +86,8 @@
     box-shadow: 5px 5px 5px var(--shadow);
 
     position:fixed;
-    width:60px;
-    height:60px;
+    width:7dvh;
+    height:7dvh;
     bottom:8dvh;
     right: 2dvh;
     border-radius:50px;

@@ -1,0 +1,162 @@
+.chat_wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+}
+
+#chat-window {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+
+#profile-list {
+    padding: 10px;
+    border-right: 1px solid var(--primary); /* Add a border to separate profiles from chat content */
+    max-height: 100%;
+    overflow-y: auto; /* Enable vertical scrolling if the list exceeds the height */
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;    
+}
+
+.profile-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /* margin-right: 10px; */
+    box-shadow: 5px 5px 5px var(--shadow);
+    border: 2px solid var(--surface);
+    display: block;
+}
+
+.floating_button {
+    background-color:var(--secondary);
+    color:var(--text-secondary);
+    box-shadow: 5px 5px 5px var(--shadow);
+
+    position:fixed;
+    width:7dvh;
+    height:7dvh;
+    bottom:8dvh;
+    right: 2dvh;
+    border-radius:50px;
+    text-align:center;
+    text-decoration: none;
+    margin: 0 auto;
+}
+
+.floating_button_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#chat-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 2; /* Occupy 2/3 of the available space */
+    padding: 10px;
+}
+
+#chat-messages {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: scroll; 
+    padding: 10px;
+}
+
+.chat_controls {
+    height: 60px;
+    padding: 5dvh;
+}
+    
+
+#message-input {
+    background-color:var(--surface);
+    color: var(--text-primary);
+    position:fixed;
+    width:70dvw;
+    height:7dvh;
+    bottom:8dvh;
+    left: 2dvh;
+    border-radius:20px;
+    box-shadow: none;
+    border: none;
+    word-wrap: break-word;
+    word-break: break-all;
+    padding: 10px;
+    text-align: center;
+
+}
+
+#message-input:focus {
+    outline-color: var(--primary);
+}
+
+button {
+    display: block;
+    width: 30%;
+}
+.sent-message {
+    width: auto;
+    max-width: 80%;
+    text-align: center;
+    margin-bottom: 5px; /* Add some space between messages */
+    padding: 10px;
+    border-radius: 10px; /* Rounded corners */
+    border: 1px solid var(--positive);
+    align-self: flex-end;
+}
+
+.received-message {
+    width: 80%;
+    text-align: center;
+    margin-bottom: 5px; /* Add some space between messages */
+    padding: 10px;
+    border-radius: 10px; /* Rounded corners */
+    border: 1px solid var(--negative);
+    align-self: flex-start;
+
+}
+
+#chat-header {
+    position: relative;
+    padding: 10px;
+    background-color: var(--surface); /* Change the background color here */
+    display: flex;
+    align-items: center; /* Align items vertically */
+    justify-content: center; /* Push user info to the right */
+}
+
+#user-info {
+    display: flex;
+    align-items: center;
+    margin-right: 10px; /* Add margin to separate from chat header edge */
+}
+
+#user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 10px;
+}
+
+#user-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.profile.active {
+    border: 2px solid #4CAF50; /* Example: Green border for active profile */
+}
