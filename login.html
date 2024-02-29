@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="login_style.css">
+    <style>
+        .error-message {
+            display: none;
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -18,14 +25,49 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
             </div>
-            <button type="submit">Login</button>
+            <button onclick="login()">Login</button>
             <div class="signup-options">
                 <p>Don't have an account?</p>
-                <a href="signup-tenant.html">Sign up as Tenant</a>
+                <a href="signup_tenant.html">Sign up as Tenant</a>
                 <span>or</span>
-                <a href="signup-landlord.html">Sign up as Landlord</a>
+                <a href="signup_landlord.html">Sign up as Landlord</a>
             </div>
+            <div class="error-message" id="error-message">The username or password is incorrect.</div>
         </div>
     </div>
+    <script>
+        function login() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const dbURL = "https://rentmate-api.up.railway.app/login";
+
+            const loginData = {
+                email: email,
+                password_hash: password
+            };
+            fetch(dbURL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(loginData),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Login was not possible');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data); 
+                window.location.href = "index.html";
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+                document.getElementById('error-message').style.display = 'block'; // Show error message
+            });
+        }
+    </script>
 </body>
 </html>
