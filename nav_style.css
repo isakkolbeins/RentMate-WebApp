@@ -1,5 +1,4 @@
 .nav_bar {
-  min-width: 100vw;
   min-height: 5dvh;
   width: 100vw;
   height: 5dvh;
@@ -7,6 +6,10 @@
   justify-content: space-around;
   align-items: center;
   position: static;
+
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
 }
 
 .nav_button {

@@ -48,7 +48,7 @@ ad_wrapper.addEventListener("touchmove", e => {
 
 let landlords = [];
 let adCounter = 0; 
-
+let curr_user_id;
 
 ad_wrapper.addEventListener("touchend", e => {
 // Delete threshold - deltaX - match threshold
@@ -77,11 +77,14 @@ ad_wrapper.addEventListener("touchend", e => {
 
 });
 
-async function fetchLandlordsData() {
+
+
+/// Get all matches - within price range - within time range - where location of intrest == commute name 
+async function fetchLandlordsData(curr_user_id) {
   try {
-    const response = await fetch(dbURL + "allLandlords");
+    const response = await fetch(dbURL + "matchesForUserId/" + curr_user_id);
     const data = await response.json();
-    landlords = data; // Store the fetched data in the landlords array
+    landlords = data.matches; // Store the fetched data in the landlords array
     populateHTML(adCounter); // Populate HTML after fetching data
     console.log("Landlords data:", landlords);
   } catch (error) {
@@ -174,7 +177,10 @@ let commute_time = "10 min";
   `;
 
   updateCounter();
-  //listingCounter = listingCounter +1;
+
+  
+  
+
 
 }
 
@@ -188,5 +194,11 @@ function formatDate(dateString) {
 }
 
 window.onload = async function() {
-  await fetchLandlordsData();
+  var urlParams = new URLSearchParams(window.location.search);
+  curr_user_id = urlParams.get('user_id');
+  console.log(curr_user_id);
+
+  // Udpate the nav
+  populateNAV("Home");
+  await fetchLandlordsData(curr_user_id);
 };

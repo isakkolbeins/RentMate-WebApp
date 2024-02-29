@@ -19,7 +19,7 @@
 
     
   </head>
-  <body>
+  <body onload="populateNAV('Profile')">
     <div class="container">
       <div class="profile_wrapper">
         <div class="profile_element profile_element_name">
@@ -129,30 +129,9 @@
     
     <div class ="nav_bar">
       
-        <a href='../Profile' class="nav_button profile_button nav_current">
-        <div >
-          <span class="material-symbols-outlined">
-            person
-            </span>
-        </div>
-        </a>
-  
-        <a href='../' class="nav_button home_button">
-          <div >
-            <span class="material-symbols-outlined">
-              home
-              </span>
-          </div>
-        </a>
-        
-        <a href='../Chat' class="nav_button chat_button">
-          <div >
-            <span class="material-symbols-outlined">
-                chat
-              </span>
-          </div>
-        </a>
-      </div>
+    </div>
+
+    <script src="../populateNav.js"></script>
 
   </body>
 </html>

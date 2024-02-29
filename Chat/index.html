@@ -20,7 +20,7 @@
 
     
   </head>
-  <body>
+  <body onload="populateNAV('Chat')">
     <div class="container">
       <div class="chat_wrapper">
 
@@ -75,34 +75,11 @@
     
     <div class ="nav_bar">
 
-      <a href='../Profile' class="nav_button profile_button">
-      <div >
-        <span class="material-symbols-outlined">
-          person
-          </span>
-      </div>
-      </a>
-
-      <a href='../' class="nav_button home_button">
-        <div >
-          <span class="material-symbols-outlined">
-            home
-            </span>
-        </div>
-      </a>
-      
-      <a href='../Chat' class="nav_button chat_button nav_current">
-        <div >
-          <span class="material-symbols-outlined">
-              chat
-            </span>
-        </div>
-      </a>
     </div>
 
-   
-
+    <script src="../populateNav.js"></script>
     <script src="script2.js"></script>
+
   </body>
 </html>
 
