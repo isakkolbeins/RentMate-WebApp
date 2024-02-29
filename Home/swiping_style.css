@@ -24,7 +24,7 @@
   border-radius: 10px;
   transition: box-shadow 0.5s;
   /* Disable the text select when swiping */
-  -webkit-user-select:none;
+  -webkit-user-select:none; 
 }
 
 .ad_photo {
