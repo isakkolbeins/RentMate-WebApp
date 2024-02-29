@@ -62,6 +62,6 @@ window.onload = async function() {
   var urlParams = new URLSearchParams(window.location.search);
   curr_user_id = urlParams.get('user_id');
   // Udpate the nav
-  populateNAV("Home");
+  populateNAV("Profile");
   await populateHTML(curr_user_id);
 };
