@@ -1,4 +1,5 @@
-const dbURL = "https://rentmate-api.up.railway.app/"
+const dbURL = "https://rentmate-api.up.railway.app/";
+const placeholderImgURL = "https://images.pexels.com/photos/101808/pexels-photo-101808.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
 
 const ad_wrapper = document.querySelector(".ad_wrapper");
 const ad_dummy_before = document.querySelector(".ad_dummy_before");
@@ -88,6 +89,23 @@ async function fetchLandlordsData() {
   }
 }
 
+async function fetchImage(landlord_id) {
+  try {
+    const response = await fetch(dbURL +"imagesByLandlord/"+landlord_id);
+    const data = await response.json();
+
+    if (data.images && data.images.length > 0) {
+      console.log("Images data:", data.images[0].image_url);
+      return data.images[0].image_url;
+    } else {
+      // Return the URL of the placeholder image if no image is found
+      return placeholderImgURL;
+    }
+  } catch (error) {
+    console.error('Error fetching landlords data:', error);
+  }
+}
+
 function updateCounter() {
   adCounter++;
   if (adCounter >= landlords.length) {
@@ -95,10 +113,11 @@ function updateCounter() {
   }
 } 
 
-function populateHTML(counter) {
+async function populateHTML(counter) {
+  
 let data = landlords[counter];
+let imagepath = await fetchImage(data.landlord_id); // Await the result of fetchImage
 console.log(data);
-let imagepath = "https://images.pexels.com/photos/101808/pexels-photo-101808.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
 let address = data.address;
 let price = data.rent_price + " sek / month";
 let time_from = formatDate(data.time_from); 
