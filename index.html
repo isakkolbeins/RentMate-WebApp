@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="login_style.css">
     <style>
         .error-message {
@@ -16,6 +17,7 @@
 <body>
     <div class="container">
         <div class="login-container">
+            <img src="./rentmateLogo-theme.svg" alt="renmate logo" class="rentmate_logo">
             <h2>Login</h2>
             <div class="form-group">
                 <label for="email">Email:</label>
@@ -28,9 +30,11 @@
             <button onclick="login()">Login</button>
             <div class="signup-options">
                 <p>Don't have an account?</p>
-                <a href="signup_tenant.html">Sign up as Tenant</a>
-                <span>or</span>
-                <a href="signup_landlord.html">Sign up as Landlord</a>
+                <div class="signup_links">
+                    <a href="signup_tenant.html">Sign up as Tenant</a>
+                    <span>or</span>
+                    <a href="signup_landlord.html">Sign up as Landlord</a>
+                </div>
             </div>
             <div class="error-message" id="error-message">The username or password is incorrect.</div>
         </div>
