@@ -6,6 +6,7 @@ const profile_info_image = document.querySelector(".profile_info_image");
 const profile_info_description = document.querySelector(".profile_info_description");
 const profile_info_commute = document.querySelector(".profile_info_commute");
 
+const profile_tag_price = document.querySelector(".profile_tag_price");
 const profile_info_time_from = document.querySelector(".profile_info_time_from");
 const profile_info_time_to = document.querySelector(".profile_info_time_to");
 const profile_info_price_from = document.querySelector(".profile_info_price_from");
@@ -18,19 +19,35 @@ async function populateHTML(curr_user_id) {
 
   const user = data.user;
   const profile = data.profile;
-
   let name = user.full_name;
+
+
   let profile_photo = profile.profile_photo;
-  let tenant_description = profile.tenant_description;
+  let description = profile.tenant_description;
   let location_of_interest = profile.location_of_interest;
+  
   let time_from = formatDate(profile.time_from); 
   let time_to = formatDate(profile.time_to); 
+  
   let min_price =  profile.min_price + " sek";
   let max_price =  profile.max_price + " sek";
 
+
+  if (user.usertype == "landlord")
+ {
+  description = profile.description;
+  location_of_interest = profile.commute_name + " - " + profile.commute_time;
+  profile_tag_price.innerHTML = `<p>Price</p>`;
+  min_price =  "";
+  max_price =  profile.rent_price + " sek";
+
+ }
+
+
+
   profile_info_name.innerHTML = `<p>${name}</p>`;
   //profile_info_image.innerHTML= `<img src="../images/profile1.jpg" class="profile_info_image"></img>`
-  profile_info_description.innerHTML = `<p>${tenant_description}</p>`;
+  profile_info_description.innerHTML = `<p>${description}</p>`;
   profile_info_commute.innerHTML = `<p>${location_of_interest}</p>`;
   profile_info_time_from.innerHTML = `<p>${time_from}</p>`;
   profile_info_time_to.innerHTML = `<p>${time_to}</p>`;
